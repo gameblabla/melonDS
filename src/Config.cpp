@@ -91,9 +91,9 @@ ConfigEntry ConfigFile[] =
     {"ScreenSizing",   0, &ScreenSizing,   0, NULL, 0},
     {"ScreenFilter",   0, &ScreenFilter,   1, NULL, 0},
 
-    {"DirectBoot", 0, &DirectBoot, 1, NULL, 0},
+    {"DirectBoot", 1, &DirectBoot, 1, NULL, 0},
 
-    {"Threaded3D", 0, &Threaded3D, 1, NULL, 0},
+    {"Threaded3D", 1, &Threaded3D, 1, NULL, 0},
 
     {"SockBindAnyAddr", 0, &SocketBindAnyAddr, 0, NULL, 0},
 
@@ -103,7 +103,7 @@ ConfigEntry ConfigFile[] =
 
 void Load()
 {
-    ConfigEntry* entry = &ConfigFile[0];
+    /*ConfigEntry* entry = &ConfigFile[0];
     for (;;)
     {
         if (!entry->Value) break;
@@ -147,12 +147,12 @@ void Load()
         }
     }
 
-    fclose(f);
+    fclose(f);*/
 }
 
 void Save()
 {
-    FILE* f = fopen("melonDS.ini", "w");
+    /*FILE* f = fopen("melonDS.ini", "w");
     if (!f) return;
 
     ConfigEntry* entry = &ConfigFile[0];
@@ -168,7 +168,7 @@ void Save()
         entry++;
     }
 
-    fclose(f);
+    fclose(f);*/
 }
 
 

@@ -25,6 +25,8 @@
 #include "melon_fopen.h"
 
 
+extern char homepath[128];
+
 namespace NDSCart_SRAM
 {
 
@@ -83,6 +85,8 @@ void Reset()
 
 void LoadSave(char* path)
 {
+	char temp[128];
+	
     if (SRAM) delete[] SRAM;
     if (Discover_Buffer) delete[] Discover_Buffer;
 
@@ -91,10 +95,15 @@ void LoadSave(char* path)
     Discover_AddrLength = 0x7FFFFFFF;
     Discover_LikelySize = 0;
 
-    strncpy(SRAMPath, path, 255);
-    SRAMPath[255] = '\0';
+    /*strncpy(SRAMPath, path, 255);
+    SRAMPath[255] = '\0';*/
+    
+    snprintf(temp, sizeof(temp), "%s/%s", homepath, path);
+	snprintf(SRAMPath, sizeof(SRAMPath), "%s", temp);
+	
+	printf("Save path: %s\n");
 
-    FILE* f = melon_fopen(path, "rb");
+    FILE* f = melon_fopen(temp, "rb");
     if (f)
     {
         fseek(f, 0, SEEK_END);
@@ -894,6 +903,8 @@ bool LoadROM(const char* path, bool direct)
     strncpy(savepath + strlen(path) - 3, "sav", 3);
     printf("Save file: %s\n", savepath);
     NDSCart_SRAM::LoadSave(savepath);
+    
+    printf("Loading ROM OK!\n");
 
     return true;
 }

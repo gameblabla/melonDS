@@ -22,6 +22,8 @@
 #include "NDS.h"
 #include "SPI.h"
 
+extern char firmware_path[128];
+
 
 namespace SPI_Firmware
 {
@@ -88,7 +90,7 @@ void Reset()
     if (Firmware) delete[] Firmware;
     Firmware = NULL;
 
-    FILE* f = fopen("firmware.bin", "rb");
+    FILE* f = fopen(firmware_path, "rb");
     if (!f)
     {
         printf("firmware.bin not found\n");
@@ -127,7 +129,7 @@ void Reset()
     fclose(f);
 
     // take a backup
-    char* firmbkp = "firmware.bin.bak";
+   /* char* firmbkp = "firmware.bin.bak";
     f = fopen(firmbkp, "rb");
     if (f) fclose(f);
     else
@@ -135,7 +137,7 @@ void Reset()
         f = fopen(firmbkp, "wb");
         fwrite(Firmware, 1, FirmwareLength, f);
         fclose(f);
-    }
+    }*/
 
     FirmwareMask = FirmwareLength - 1;
 

@@ -31,6 +31,9 @@
 #include "Wifi.h"
 #include "Platform.h"
 
+extern char bios7_path[128];
+extern char bios9_path[128];
+
 
 namespace NDS
 {
@@ -244,7 +247,7 @@ void Reset()
     FILE* f;
     u32 i;
 
-    f = fopen("bios9.bin", "rb");
+    f = fopen(bios9_path, "rb");
     if (!f)
     {
         printf("ARM9 BIOS not found\n");
@@ -261,7 +264,7 @@ void Reset()
         fclose(f);
     }
 
-    f = fopen("bios7.bin", "rb");
+    f = fopen(bios7_path, "rb");
     if (!f)
     {
         printf("ARM7 BIOS not found\n");

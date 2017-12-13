@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=MelonDS
+Comment=Nintendo DS emulator
+Exec=melonds-gcw0.elf %f
+Icon=melon
+Terminal=false
+Categories=emulators;
+X-OD-NeedsDownscaling=true

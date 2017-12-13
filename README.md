@@ -1,3 +1,24 @@
+melonDS for the GCW0
+
+This is a port of melonDS, a Nintendo DS emulator, for the GCW0.
+
+Just like DesMume, it is very slow, plus unlike DesMume it requires BIOS & Firmware files in /usr/local/home/.config/melonds :
+
+bios7.bin, bios9.bin and firmware.bin.
+
+It required GTK+3.0/SDL 2.0 but this was ported to SDL 1.2, without the GTK bloatness.
+
+This port is a proof-of-concept and just for the lulz.
+
+Don't use it for gaming, you'll seriously cry. (even though compatibility is decent)
+
+Hopefully melonDS will work on the hardware renderer and HOPEFULLY, its OpenGL ES 2.0.
+
+Press Start + Select to exit the emulator.
+
+=========
+
+
 # melonDS
 
 DS emulator, sorta
